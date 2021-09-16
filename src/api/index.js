@@ -1,9 +1,9 @@
 import axios from "axios";
+import env from "react-dotenv"
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: env.API_URL,
 });
-
 export const insertToDo = (todo) => api.post(`/todos`, todo);
 export const updateToDo = (id, payload) => api.put(`/todos/${id}`, payload);
 export const deleteToDo = (id) => api.delete(`/todos/${id}`);
